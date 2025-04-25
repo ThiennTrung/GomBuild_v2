@@ -73,3 +73,4 @@ Version.cpp
 *.pdb
 *.manifest
 *.cache
+*.v2
