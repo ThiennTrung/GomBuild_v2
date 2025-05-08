@@ -13,7 +13,11 @@ namespace GomBuild_v2.Model
         public List<BUILDS> BUILDS { get; set; }
 
     }
-
+    public class Version
+    {
+        public string KEY { get; set; }
+        public string VALUE { get; set; }
+    }   
     public class BUILDS
     {
         public int STT { get; set; }

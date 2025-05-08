@@ -13,14 +13,12 @@ using System.Net.Http;
 using System.Data.SQLite;
 //using EverythingSearchClient;
 using ClosedXML.Excel;
+using GomBuild_v2.Services;
 
 namespace GomBuild_v2
 {
     public partial class Form1 : Form
     {
-        private NotifyIcon trayIcon;
-        private ContextMenuStrip trayMenu;
-
         public List<FileInfo> lstCurrent = new List<FileInfo>();
         public List<DupFile> lstFileTrung = new List<DupFile>();
 
@@ -47,6 +45,7 @@ namespace GomBuild_v2
             (dataGridView1.Columns["Type"] as DataGridViewComboBoxColumn).ValueMember = "ID";
 
             //this.Text = "Trung nè";
+            var a = Common.CheckUpdateAsync();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -88,41 +87,12 @@ namespace GomBuild_v2
                             Override = true;
                         }
                         lstCurrent.Add(oFileInfo);
-                        this.dataGridView1.Rows.Add(oFileInfo.FullName, oFileInfo.Extension, GetTypeFile(oFileInfo.Extension), oFileInfo.Name, status, duplicate.BUILDPATH, ISDUP, Override, false);
+                        this.dataGridView1.Rows.Add(oFileInfo.FullName, oFileInfo.Extension, Common.GetTypeFile(oFileInfo.Extension), oFileInfo.Name, status, duplicate.BUILDPATH, ISDUP, Override, false);
                     }
                 }
 
             }
         }
-
-
-        private int? GetTypeFile(string extend)
-        {
-            int? res = null;
-            switch (extend)
-            {
-                case ".rdl":
-                case ".rdlx":
-                    res = (int)_TypeFile.Report;
-                    break;
-                case ".gz":
-                    res = (int)_TypeFile.Form;
-                    break;
-                case ".xls":
-                case ".xlsx":
-                    res = (int)_TypeFile.Template;
-                    break;
-                case ".json":
-                    res = (int)_TypeFile.Style;
-                    break;
-                case ".png":
-                case ".jpg":
-                    res = (int)_TypeFile.Image;
-                    break;
-            }
-            return res;
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox2.Text))
@@ -411,12 +381,7 @@ namespace GomBuild_v2
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            string apiUrl = ConfigurationManager.AppSettings["API_SQLJSON"].ToString();
-            string Master = ConfigurationManager.AppSettings["API_MASTER"].ToString();
-            string Access = ConfigurationManager.AppSettings["API_ACCSESS"].ToString();
-            string json = await FetchDataFromAPIWithHeaders(apiUrl, Master, Access);
-            var _JsonString = JsonConvert.DeserializeObject<JsonString>(json);
-
+            JsonString _JsonString = await Common.CallApi();
             string PathCommit = ConfigurationManager.AppSettings["PathCommit"];
 
             lstProject = _JsonString.BUILDS.Select(x => x.PROJECT).Distinct().ToList();
@@ -469,33 +434,6 @@ namespace GomBuild_v2
             textBox1.Text = PathCommit;
             comboBox2.SelectedIndex = comboBox2.Items.IndexOf(DEV);
         }
-        static async Task<string> FetchDataFromAPIWithHeaders(string apiUrl, string Master, string Access)
-        {
-            string responseData = string.Empty;
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    client.DefaultRequestHeaders.Add("X-Master-Key", Master);
-                    client.DefaultRequestHeaders.Add("X-Access-Key", Access);
-                    client.DefaultRequestHeaders.Add("X-BIN-META", "false");
-                    HttpResponseMessage response = await client.GetAsync(apiUrl);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        responseData = await response.Content.ReadAsStringAsync();
-                    }
-                    else
-                    {
-                    }
-                }
-                catch (Exception ex)
-                {
-                }
-            }
-            return responseData;
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             //lstCurrent.Clear();
