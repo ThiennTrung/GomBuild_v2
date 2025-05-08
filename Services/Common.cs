@@ -77,7 +77,7 @@ namespace GomBuild_v2.Services
 
         public static async Task<bool> CheckUpdateAsync()
         {
-            string localVersion = "1.0.0";
+            string localVersion = "2.0.0";
             string jsonUrl = "https://raw.githubusercontent.com/ThiennTrung/GomBuild_v2/refs/heads/main/Update/Update.json";
 
             using var http = new HttpClient();
@@ -95,9 +95,9 @@ namespace GomBuild_v2.Services
             if (isUpdate)
             {
                 if (MessageBox.Show("Cập nhật nha, bug quá rồi!", "UPDATE 🔄", MessageBoxButtons.OKCancel, MessageBoxIcon.Information
-                                ) == DialogResult.Yes)
+                                ) == DialogResult.OK)
                 {
-                    Process.Start("GomBuildV2_Updater.Updater.exe");
+                    Process.Start("GomBuildV2_Updater.exe");
                     Application.Exit();
                 }
                 else { return; }
