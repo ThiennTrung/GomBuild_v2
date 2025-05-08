@@ -1,18 +1,11 @@
 ﻿using GomBuild_v2.Model;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Version = GomBuild_v2.Model.Version;
 
 namespace GomBuild_v2.Services
 {
@@ -25,16 +18,6 @@ namespace GomBuild_v2.Services
             string Access = ConfigurationManager.AppSettings["API_ACCSESS"].ToString();
             string json = await FetchDataFromAPIWithHeaders(apiUrl, Master, Access);
             var _JsonString = JsonConvert.DeserializeObject<JsonString>(json);
-
-            return _JsonString;
-        }
-        public static async Task<List<Version>> CallApiVersion()
-        {
-            string apiUrl = ConfigurationManager.AppSettings["API_VERJSON"].ToString();
-            string Master = ConfigurationManager.AppSettings["API_MASTER"].ToString();
-            string Access = ConfigurationManager.AppSettings["API_ACCSESS"].ToString();
-            string json = await FetchDataFromAPIWithHeaders(apiUrl, Master, Access);
-            var _JsonString = JsonConvert.DeserializeObject<List<Version>>(json);
 
             return _JsonString;
         }
@@ -94,40 +77,31 @@ namespace GomBuild_v2.Services
 
         public static async Task<bool> CheckUpdateAsync()
         {
-            List<Version> result = await CallApiVersion();
-            var obj = result.Where(x => x.KEY.Equals("GOMBUILD")).FirstOrDefault();
-            if (!obj.VALUE.Contains("1.0.0"))
+            string localVersion = "1.0.0";
+            string jsonUrl = "https://raw.githubusercontent.com/ThiennTrung/GomBuild_v2/refs/heads/main/Update/Update.json";
+
+            using var http = new HttpClient();
+            var json = await http.GetStringAsync(jsonUrl);
+            var updateInfo = System.Text.Json.JsonSerializer.Deserialize<UpdateInfo>(json);
+            if (new Version(updateInfo.version) > new Version(localVersion))
             {
-
+                return true;
             }
-
-
-            return true;
-
-            //WebClient webClient = new WebClient();
-            //var client = new WebClient();
-            //if (!webClient.DownloadString("link to web host/Version.txt").Contains("1.0.0"))
-            //{
-            //    if (MessageBox.Show("A new update is available! Do you want to download it?", "Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //    {
-            //        try
-            //        {
-            //            if (File.Exists(@".\MyAppSetup.msi")) { File.Delete(@".\MyAppSetup.msi"); }
-            //            client.DownloadFile("link to web host/MyAppSetup.zip", @"MyAppSetup.zip");
-            //            string zipPath = @".\MyAppSetup.zip";
-            //            string extractPath = @".\";
-            //            ZipFile.ExtractToDirectory(zipPath, extractPath);
-            //            Process process = new Process();
-            //            process.StartInfo.FileName = "msiexec.exe";
-            //            process.StartInfo.Arguments = string.Format("/i MyAppSetup.msi");
-            //            //this.Close();
-            //            process.Start();
-            //        }
-            //        catch
-            //        {
-            //        }
-            //    }
-            //}
+            return false;
+        }
+        public static async void UpdateVersion()
+        {
+            var isUpdate = await CheckUpdateAsync();
+            if (isUpdate)
+            {
+                if (MessageBox.Show("Cập nhật nha, bug quá rồi!", "UPDATE 🔄", MessageBoxButtons.OKCancel, MessageBoxIcon.Information
+                                ) == DialogResult.Yes)
+                {
+                    Process.Start("GomBuildV2_Updater.Updater.exe");
+                    Application.Exit();
+                }
+                else { return; }
+            } 
         }
     }
 }

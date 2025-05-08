@@ -13,11 +13,6 @@ namespace GomBuild_v2.Model
         public List<BUILDS> BUILDS { get; set; }
 
     }
-    public class Version
-    {
-        public string KEY { get; set; }
-        public string VALUE { get; set; }
-    }   
     public class BUILDS
     {
         public int STT { get; set; }
@@ -26,5 +21,10 @@ namespace GomBuild_v2.Model
         public bool ISCURRENT { get; set; }
         public string NOTE { get; set; }
 
+    }
+    public class UpdateInfo
+    {
+        public string version { get; set; }
+        public string url { get; set; }
     }
 }

@@ -43,9 +43,6 @@ namespace GomBuild_v2
             (dataGridView1.Columns["Type"] as DataGridViewComboBoxColumn).DataSource = List;
             (dataGridView1.Columns["Type"] as DataGridViewComboBoxColumn).DisplayMember = "NAME";
             (dataGridView1.Columns["Type"] as DataGridViewComboBoxColumn).ValueMember = "ID";
-
-            //this.Text = "Trung nè";
-            var a = Common.CheckUpdateAsync();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -433,6 +430,11 @@ namespace GomBuild_v2
             string DEV = ConfigurationManager.AppSettings["DEV"];
             textBox1.Text = PathCommit;
             comboBox2.SelectedIndex = comboBox2.Items.IndexOf(DEV);
+
+
+
+            Common.UpdateVersion();
+
         }
         private void button3_Click(object sender, EventArgs e)
         {
