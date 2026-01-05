@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.34031.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GomBuild_v2", "GomBuild_v2.csproj", "{F536D1C3-0142-4492-A76E-CDA6ADEE00CE}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupGomBuild", "SetupGomBuild\SetupGomBuild.vdproj", "{1B4CD52C-6FBD-482D-9472-62E3DE95EFA9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GomBuildV2_Updater", "..\GomBuildV2_Updater\GomBuildV2_Updater.csproj", "{6BD72AB3-49F3-4487-B14A-2711D52C45D8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +15,6 @@ Global
 		{F536D1C3-0142-4492-A76E-CDA6ADEE00CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F536D1C3-0142-4492-A76E-CDA6ADEE00CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F536D1C3-0142-4492-A76E-CDA6ADEE00CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B4CD52C-6FBD-482D-9472-62E3DE95EFA9}.Debug|Any CPU.ActiveCfg = Debug
-		{1B4CD52C-6FBD-482D-9472-62E3DE95EFA9}.Release|Any CPU.ActiveCfg = Release
-		{6BD72AB3-49F3-4487-B14A-2711D52C45D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BD72AB3-49F3-4487-B14A-2711D52C45D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BD72AB3-49F3-4487-B14A-2711D52C45D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BD72AB3-49F3-4487-B14A-2711D52C45D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

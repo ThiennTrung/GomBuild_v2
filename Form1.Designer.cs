@@ -30,474 +30,686 @@ namespace GomBuild_v2
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbo_BuildVer = new System.Windows.Forms.ComboBox();
-            this.cbo_Project = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EXTEND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TYPE = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.FILENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Txt_SerchKey = new System.Windows.Forms.TextBox();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.SuspendLayout();
+            toolTip1 = new ToolTip(components);
+            comboBox1 = new ComboBox();
+            cbo_BuildVer = new ComboBox();
+            cbo_Project = new ComboBox();
+            tabPage2 = new TabPage();
+            textBox8 = new TextBox();
+            label11 = new Label();
+            label8 = new Label();
+            checkBox2 = new CheckBox();
+            textBox4 = new TextBox();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            button3 = new Button();
+            button2 = new Button();
+            comboBox3 = new ComboBox();
+            label5 = new Label();
+            checkBox1 = new CheckBox();
+            button1 = new Button();
+            comboBox2 = new ComboBox();
+            label4 = new Label();
+            button4 = new Button();
+            dataGridView1 = new DataGridView();
+            NAME = new DataGridViewTextBoxColumn();
+            EXTEND = new DataGridViewTextBoxColumn();
+            TYPE = new DataGridViewComboBoxColumn();
+            FILENAME = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewCheckBoxColumn();
+            Column3 = new DataGridViewCheckBoxColumn();
+            Column4 = new DataGridViewCheckBoxColumn();
+            Column1 = new DataGridViewButtonColumn();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            groupBox2 = new GroupBox();
+            textBox7 = new TextBox();
+            groupBox1 = new GroupBox();
+            checkBox5 = new CheckBox();
+            checkBox4 = new CheckBox();
+            checkBox3 = new CheckBox();
+            button6 = new Button();
+            button5 = new Button();
+            textBox6 = new TextBox();
+            label10 = new Label();
+            textBox5 = new TextBox();
+            label9 = new Label();
+            tabPage3 = new TabPage();
+            dataGridView2 = new DataGridView();
+            label7 = new Label();
+            label6 = new Label();
+            Txt_SerchKey = new TextBox();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            SuspendLayout();
             // 
             // comboBox1
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(59, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 23);
-            this.comboBox1.TabIndex = 30;
-            this.toolTip1.SetToolTip(this.comboBox1, "Không biết build nào thì hỏi OanhDH2 ");
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            comboBox1.BackColor = System.Drawing.Color.FromArgb(255, 255, 192);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new System.Drawing.Point(67, 83);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(137, 28);
+            comboBox1.TabIndex = 30;
+            toolTip1.SetToolTip(comboBox1, "Không biết build nào thì hỏi OanhDH2 ");
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
             // cbo_BuildVer
             // 
-            this.cbo_BuildVer.Enabled = false;
-            this.cbo_BuildVer.FormattingEnabled = true;
-            this.cbo_BuildVer.Location = new System.Drawing.Point(240, 11);
-            this.cbo_BuildVer.Name = "cbo_BuildVer";
-            this.cbo_BuildVer.Size = new System.Drawing.Size(150, 23);
-            this.cbo_BuildVer.TabIndex = 32;
-            this.toolTip1.SetToolTip(this.cbo_BuildVer, "Không biết build nào thì hỏi OanhDH2 ");
+            cbo_BuildVer.Enabled = false;
+            cbo_BuildVer.FormattingEnabled = true;
+            cbo_BuildVer.Location = new System.Drawing.Point(274, 15);
+            cbo_BuildVer.Margin = new Padding(3, 4, 3, 4);
+            cbo_BuildVer.Name = "cbo_BuildVer";
+            cbo_BuildVer.Size = new System.Drawing.Size(171, 28);
+            cbo_BuildVer.TabIndex = 32;
+            toolTip1.SetToolTip(cbo_BuildVer, "Không biết build nào thì hỏi OanhDH2 ");
             // 
             // cbo_Project
             // 
-            this.cbo_Project.FormattingEnabled = true;
-            this.cbo_Project.Location = new System.Drawing.Point(58, 11);
-            this.cbo_Project.Name = "cbo_Project";
-            this.cbo_Project.Size = new System.Drawing.Size(120, 23);
-            this.cbo_Project.TabIndex = 34;
-            this.toolTip1.SetToolTip(this.cbo_Project, "Không biết build nào thì hỏi OanhDH2 ");
-            this.cbo_Project.SelectedValueChanged += new System.EventHandler(this.cbo_Project_SelectedValueChanged);
+            cbo_Project.FormattingEnabled = true;
+            cbo_Project.Location = new System.Drawing.Point(66, 15);
+            cbo_Project.Margin = new Padding(3, 4, 3, 4);
+            cbo_Project.Name = "cbo_Project";
+            cbo_Project.Size = new System.Drawing.Size(137, 28);
+            cbo_Project.TabIndex = 34;
+            toolTip1.SetToolTip(cbo_Project, "Không biết build nào thì hỏi OanhDH2 ");
+            cbo_Project.SelectedValueChanged += cbo_Project_SelectedValueChanged;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.checkBox2);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.comboBox3);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.checkBox1);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(990, 483);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Commit";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Controls.Add(textBox8);
+            tabPage2.Controls.Add(label11);
+            tabPage2.Controls.Add(label8);
+            tabPage2.Controls.Add(checkBox2);
+            tabPage2.Controls.Add(textBox4);
+            tabPage2.Controls.Add(textBox3);
+            tabPage2.Controls.Add(textBox2);
+            tabPage2.Controls.Add(textBox1);
+            tabPage2.Controls.Add(button3);
+            tabPage2.Controls.Add(button2);
+            tabPage2.Controls.Add(comboBox3);
+            tabPage2.Controls.Add(label5);
+            tabPage2.Controls.Add(checkBox1);
+            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(comboBox2);
+            tabPage2.Controls.Add(comboBox1);
+            tabPage2.Controls.Add(label4);
+            tabPage2.Controls.Add(button4);
+            tabPage2.Controls.Add(dataGridView1);
+            tabPage2.Controls.Add(label3);
+            tabPage2.Controls.Add(label2);
+            tabPage2.Controls.Add(label1);
+            tabPage2.Location = new System.Drawing.Point(4, 29);
+            tabPage2.Margin = new Padding(3, 4, 3, 4);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3, 4, 3, 4);
+            tabPage2.Size = new System.Drawing.Size(1133, 648);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Commit";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new System.Drawing.Point(590, 48);
+            textBox8.Margin = new Padding(3, 4, 3, 4);
+            textBox8.Multiline = true;
+            textBox8.Name = "textBox8";
+            textBox8.PlaceholderText = "Code";
+            textBox8.Size = new System.Drawing.Size(269, 101);
+            textBox8.TabIndex = 44;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label11.ForeColor = System.Drawing.Color.Red;
+            label11.Location = new System.Drawing.Point(19, 155);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(0, 32);
+            label11.TabIndex = 43;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(256, 123);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(0, 15);
-            this.label8.TabIndex = 42;
+            label8.AutoSize = true;
+            label8.ForeColor = System.Drawing.Color.Red;
+            label8.Location = new System.Drawing.Point(293, 164);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(0, 20);
+            label8.TabIndex = 42;
             // 
             // checkBox2
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(185, 38);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(62, 19);
-            this.checkBox2.TabIndex = 41;
-            this.checkBox2.Text = "No Jira";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new System.Drawing.Point(211, 51);
+            checkBox2.Margin = new Padding(3, 4, 3, 4);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(77, 24);
+            checkBox2.TabIndex = 41;
+            checkBox2.Text = "No Jira";
+            checkBox2.UseVisualStyleBackColor = true;
+            checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             // 
             // textBox4
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(664, 36);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PlaceholderText = "Add new tham số, mỗi tham số 1 dòng";
-            this.textBox4.Size = new System.Drawing.Size(318, 77);
-            this.textBox4.TabIndex = 39;
+            textBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBox4.Location = new System.Drawing.Point(866, 48);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.PlaceholderText = "Add new tham số, mỗi tham số 1 dòng";
+            textBox4.Size = new System.Drawing.Size(255, 101);
+            textBox4.TabIndex = 39;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(250, 36);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "Nội dung chỉnh sửa";
-            this.textBox3.Size = new System.Drawing.Size(404, 77);
-            this.textBox3.TabIndex = 32;
+            textBox3.Location = new System.Drawing.Point(286, 48);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.PlaceholderText = "Nội dung chỉnh sửa";
+            textBox3.Size = new System.Drawing.Size(298, 101);
+            textBox3.TabIndex = 32;
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.textBox2.Location = new System.Drawing.Point(59, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 23);
-            this.textBox2.TabIndex = 26;
+            textBox2.BackColor = System.Drawing.Color.FromArgb(255, 255, 192);
+            textBox2.Location = new System.Drawing.Point(67, 48);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(137, 27);
+            textBox2.TabIndex = 26;
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(59, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(595, 23);
-            this.textBox1.TabIndex = 24;
+            textBox1.Enabled = false;
+            textBox1.Location = new System.Drawing.Point(67, 9);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(679, 27);
+            textBox1.TabIndex = 24;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(125, 119);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 23);
-            this.button3.TabIndex = 38;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.Location = new System.Drawing.Point(143, 159);
+            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(61, 31);
+            button3.TabIndex = 38;
+            button3.Text = "Clear";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(185, 117);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 26);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Commit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Location = new System.Drawing.Point(211, 156);
+            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(73, 35);
+            button2.TabIndex = 37;
+            button2.Text = "Commit";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // comboBox3
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(59, 90);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(120, 23);
-            this.comboBox3.TabIndex = 36;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new System.Drawing.Point(67, 120);
+            comboBox3.Margin = new Padding(3, 4, 3, 4);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new System.Drawing.Size(137, 28);
+            comboBox3.TabIndex = 36;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 15);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Site";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(5, 125);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(34, 20);
+            label5.TabIndex = 35;
+            label5.Text = "Site";
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(185, 64);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 19);
-            this.checkBox1.TabIndex = 34;
-            this.checkBox1.Text = "HotFix";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new System.Drawing.Point(211, 85);
+            checkBox1.Margin = new Padding(3, 4, 3, 4);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(74, 24);
+            checkBox1.TabIndex = 34;
+            checkBox1.Text = "HotFix";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(185, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 23);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Browser";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new System.Drawing.Point(211, 120);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(73, 31);
+            button1.TabIndex = 33;
+            button1.Text = "Browser";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // comboBox2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(709, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(88, 23);
-            this.comboBox2.TabIndex = 31;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new System.Drawing.Point(810, 5);
+            comboBox2.Margin = new Padding(3, 4, 3, 4);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new System.Drawing.Size(100, 28);
+            comboBox2.TabIndex = 31;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(664, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 15);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Name";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(759, 11);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(49, 20);
+            label4.TabIndex = 29;
+            label4.Text = "Name";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(59, 119);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 23);
-            this.button4.TabIndex = 40;
-            this.button4.Text = "Xuất BC";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            button4.Location = new System.Drawing.Point(1054, 4);
+            button4.Margin = new Padding(3, 4, 3, 4);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(69, 31);
+            button4.TabIndex = 40;
+            button4.Text = "Xuất BC";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NAME,
-            this.EXTEND,
-            this.TYPE,
-            this.FILENAME,
-            this.Status,
-            this.Column2,
-            this.Column5,
-            this.Column3,
-            this.Column4,
-            this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 148);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 20;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(974, 329);
-            this.dataGridView1.TabIndex = 28;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NAME, EXTEND, TYPE, FILENAME, Status, Column2, Column5, Column3, Column4, Column1 });
+            dataGridView1.Location = new System.Drawing.Point(9, 197);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 20;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new System.Drawing.Size(1113, 439);
+            dataGridView1.TabIndex = 28;
             // 
             // NAME
             // 
-            this.NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NAME.DataPropertyName = "NAME";
-            this.NAME.HeaderText = "Name";
-            this.NAME.Name = "NAME";
-            this.NAME.ReadOnly = true;
+            NAME.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NAME.DataPropertyName = "NAME";
+            NAME.HeaderText = "Name";
+            NAME.MinimumWidth = 6;
+            NAME.Name = "NAME";
+            NAME.ReadOnly = true;
             // 
             // EXTEND
             // 
-            this.EXTEND.DataPropertyName = "EXTEND";
-            this.EXTEND.HeaderText = "Extend";
-            this.EXTEND.Name = "EXTEND";
-            this.EXTEND.ReadOnly = true;
-            this.EXTEND.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EXTEND.Visible = false;
-            this.EXTEND.Width = 50;
+            EXTEND.DataPropertyName = "EXTEND";
+            EXTEND.HeaderText = "Extend";
+            EXTEND.MinimumWidth = 6;
+            EXTEND.Name = "EXTEND";
+            EXTEND.ReadOnly = true;
+            EXTEND.Resizable = DataGridViewTriState.True;
+            EXTEND.Visible = false;
+            EXTEND.Width = 50;
             // 
             // TYPE
             // 
-            this.TYPE.DataPropertyName = "TYPE";
-            this.TYPE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.TYPE.HeaderText = "Type";
-            this.TYPE.Name = "TYPE";
-            this.TYPE.Width = 120;
+            TYPE.DataPropertyName = "TYPE";
+            TYPE.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+            TYPE.HeaderText = "Type";
+            TYPE.MinimumWidth = 6;
+            TYPE.Name = "TYPE";
+            TYPE.Width = 120;
             // 
             // FILENAME
             // 
-            this.FILENAME.DataPropertyName = "FILENAME";
-            this.FILENAME.HeaderText = "FILENAME";
-            this.FILENAME.Name = "FILENAME";
-            this.FILENAME.ReadOnly = true;
-            this.FILENAME.Visible = false;
+            FILENAME.DataPropertyName = "FILENAME";
+            FILENAME.HeaderText = "FILENAME";
+            FILENAME.MinimumWidth = 6;
+            FILENAME.Name = "FILENAME";
+            FILENAME.ReadOnly = true;
+            FILENAME.Visible = false;
+            FILENAME.Width = 125;
             // 
             // Status
             // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 65;
+            Status.DataPropertyName = "Status";
+            Status.HeaderText = "Status";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Width = 65;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Path Build";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 200;
+            Column2.HeaderText = "Path Build";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 200;
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "ISDUP";
-            this.Column5.HeaderText = "Column5";
-            this.Column5.Name = "Column5";
-            this.Column5.Visible = false;
+            Column5.DataPropertyName = "ISDUP";
+            Column5.HeaderText = "Column5";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Visible = false;
+            Column5.Width = 125;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column3.HeaderText = "Override";
-            this.Column3.Name = "Column3";
-            this.Column3.ToolTipText = "File trùng mặc định cột này = true";
-            this.Column3.Width = 58;
+            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Column3.HeaderText = "Override";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.ToolTipText = "File trùng mặc định cột này = true";
+            Column3.Width = 72;
             // 
             // Column4
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column4.HeaderText = "New Version";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 78;
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Column4.HeaderText = "New Version";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 97;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Detail";
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 45;
+            Column1.HeaderText = "Detail";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Resizable = DataGridViewTriState.False;
+            Column1.Width = 45;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 15);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Build ver";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(5, 88);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(67, 20);
+            label3.TabIndex = 27;
+            label3.Text = "Build ver";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 15);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Mã JIRA";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(5, 52);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(62, 20);
+            label2.TabIndex = 25;
+            label2.Text = "Mã JIRA";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Folder";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(5, 15);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(51, 20);
+            label1.TabIndex = 23;
+            label1.Text = "Folder";
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(998, 511);
-            this.tabControl1.TabIndex = 23;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new System.Drawing.Point(0, 0);
+            tabControl1.Margin = new Padding(3, 4, 3, 4);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(1141, 681);
+            tabControl1.TabIndex = 23;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(groupBox2);
+            tabPage1.Controls.Add(textBox7);
+            tabPage1.Controls.Add(groupBox1);
+            tabPage1.Location = new System.Drawing.Point(4, 29);
+            tabPage1.Margin = new Padding(3, 4, 3, 4);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Size = new System.Drawing.Size(1133, 648);
+            tabPage1.TabIndex = 3;
+            tabPage1.Text = "Tính năng ❤️";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Location = new System.Drawing.Point(11, 213);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new System.Drawing.Size(1111, 133);
+            groupBox2.TabIndex = 34;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Có trick gì thì gắn vô sau";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new System.Drawing.Point(11, 531);
+            textBox7.Margin = new Padding(3, 4, 3, 4);
+            textBox7.Multiline = true;
+            textBox7.Name = "textBox7";
+            textBox7.Size = new System.Drawing.Size(1110, 101);
+            textBox7.TabIndex = 33;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(checkBox5);
+            groupBox1.Controls.Add(checkBox4);
+            groupBox1.Controls.Add(checkBox3);
+            groupBox1.Controls.Add(button6);
+            groupBox1.Controls.Add(button5);
+            groupBox1.Controls.Add(textBox6);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(textBox5);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Location = new System.Drawing.Point(11, 16);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new System.Drawing.Size(1111, 165);
+            groupBox1.TabIndex = 27;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Replace duplicate name in form 👍";
+            // 
+            // checkBox5
+            // 
+            checkBox5.AutoSize = true;
+            checkBox5.Checked = true;
+            checkBox5.CheckState = CheckState.Checked;
+            checkBox5.Location = new System.Drawing.Point(768, 135);
+            checkBox5.Margin = new Padding(3, 4, 3, 4);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new System.Drawing.Size(131, 24);
+            checkBox5.TabIndex = 38;
+            checkBox5.Text = "Generate event";
+            checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.Checked = true;
+            checkBox4.CheckState = CheckState.Checked;
+            checkBox4.Location = new System.Drawing.Point(768, 101);
+            checkBox4.Margin = new Padding(3, 4, 3, 4);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new System.Drawing.Size(138, 24);
+            checkBox4.TabIndex = 37;
+            checkBox4.Text = "Generate model";
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            checkBox3.AutoSize = true;
+            checkBox3.Checked = true;
+            checkBox3.CheckState = CheckState.Checked;
+            checkBox3.Location = new System.Drawing.Point(768, 68);
+            checkBox3.Margin = new Padding(3, 4, 3, 4);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new System.Drawing.Size(151, 24);
+            checkBox3.TabIndex = 36;
+            checkBox3.Text = "Open folder result";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new System.Drawing.Point(843, 29);
+            button6.Margin = new Padding(3, 4, 3, 4);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(73, 31);
+            button6.TabIndex = 35;
+            button6.Text = "Execute";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new System.Drawing.Point(763, 29);
+            button5.Margin = new Padding(3, 4, 3, 4);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(73, 31);
+            button5.TabIndex = 34;
+            button5.Text = "Browser";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // textBox6
+            // 
+            textBox6.Enabled = false;
+            textBox6.Location = new System.Drawing.Point(81, 81);
+            textBox6.Margin = new Padding(3, 4, 3, 4);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new System.Drawing.Size(679, 27);
+            textBox6.TabIndex = 30;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(18, 87);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(55, 20);
+            label10.TabIndex = 29;
+            label10.Text = "Output";
+            // 
+            // textBox5
+            // 
+            textBox5.Enabled = false;
+            textBox5.Location = new System.Drawing.Point(81, 31);
+            textBox5.Margin = new Padding(3, 4, 3, 4);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new System.Drawing.Size(679, 27);
+            textBox5.TabIndex = 28;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(18, 36);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(43, 20);
+            label9.TabIndex = 27;
+            label9.Text = "Input";
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Controls.Add(this.cbo_Project);
-            this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.cbo_BuildVer);
-            this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.Txt_SerchKey);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(990, 483);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Search";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            tabPage3.Controls.Add(dataGridView2);
+            tabPage3.Controls.Add(cbo_Project);
+            tabPage3.Controls.Add(label7);
+            tabPage3.Controls.Add(cbo_BuildVer);
+            tabPage3.Controls.Add(label6);
+            tabPage3.Controls.Add(Txt_SerchKey);
+            tabPage3.Location = new System.Drawing.Point(4, 29);
+            tabPage3.Margin = new Padding(3, 4, 3, 4);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new System.Drawing.Size(1133, 648);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Search";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(8, 40);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 20;
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(974, 435);
-            this.dataGridView2.TabIndex = 35;
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new System.Drawing.Point(9, 53);
+            dataGridView2.Margin = new Padding(3, 4, 3, 4);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 20;
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new System.Drawing.Size(1113, 580);
+            dataGridView2.TabIndex = 35;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 15);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 15);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Project";
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(9, 20);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(55, 20);
+            label7.TabIndex = 33;
+            label7.Text = "Project";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(185, 15);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 15);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Build ver";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(211, 20);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(67, 20);
+            label6.TabIndex = 31;
+            label6.Text = "Build ver";
             // 
             // Txt_SerchKey
             // 
-            this.Txt_SerchKey.Location = new System.Drawing.Point(396, 11);
-            this.Txt_SerchKey.Name = "Txt_SerchKey";
-            this.Txt_SerchKey.Size = new System.Drawing.Size(586, 23);
-            this.Txt_SerchKey.TabIndex = 26;
-            this.Txt_SerchKey.TextChanged += new System.EventHandler(this.Txt_SerchKey_TextChanged);
+            Txt_SerchKey.Location = new System.Drawing.Point(453, 15);
+            Txt_SerchKey.Margin = new Padding(3, 4, 3, 4);
+            Txt_SerchKey.Name = "Txt_SerchKey";
+            Txt_SerchKey.Size = new System.Drawing.Size(669, 27);
+            Txt_SerchKey.TabIndex = 26;
+            Txt_SerchKey.TextChanged += Txt_SerchKey_TextChanged;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 511);
-            this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GOM BUILD";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1141, 681);
+            Controls.Add(tabControl1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "GOM BUILD";
+            Load += Form1_Load;
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -542,5 +754,20 @@ namespace GomBuild_v2
         private TextBox Txt_SerchKey;
         private DataGridView dataGridView2;
         private Label label8;
+        private TabPage tabPage1;
+        private GroupBox groupBox1;
+        private TextBox textBox6;
+        private Label label10;
+        private TextBox textBox5;
+        private Label label9;
+        private Button button5;
+        private TextBox textBox7;
+        private Button button6;
+        private CheckBox checkBox5;
+        private CheckBox checkBox4;
+        private CheckBox checkBox3;
+        private Label label11;
+        private TextBox textBox8;
+        private GroupBox groupBox2;
     }
 }

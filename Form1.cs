@@ -14,6 +14,8 @@ using System.Data.SQLite;
 //using EverythingSearchClient;
 using ClosedXML.Excel;
 using GomBuild_v2.Services;
+using System.Diagnostics;
+
 
 namespace GomBuild_v2
 {
@@ -56,7 +58,7 @@ namespace GomBuild_v2
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "files (*.gz;*.rdl;*.rdlx;*.sql)|*.gz;*.rdl;*.rdlx;*.sql|All files (*.*)|*.*";
+                openFileDialog.Filter = "files (*.gz;*.rdl;*.rdlx;*.sql)|*.gz;*.rdl;*.rdlc;*.rdlx;*.sql|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
                 openFileDialog.Multiselect = true;
@@ -90,7 +92,7 @@ namespace GomBuild_v2
 
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBox2.Text))
             {
@@ -102,11 +104,11 @@ namespace GomBuild_v2
                 MessageBox.Show("Chọn build ver");
                 return;
             }
-            if (dataGridView1.RowCount <= 0 && string.IsNullOrEmpty(textBox4.Text))
-            {
-                MessageBox.Show("Có file nào đâu mà commit");
-                return;
-            }
+            //if (dataGridView1.RowCount <= 0 && string.IsNullOrEmpty(textBox4.Text))
+            //{
+            //    MessageBox.Show("Có file nào đâu mà commit");
+            //    return;
+            //}
             if (string.IsNullOrEmpty(comboBox2.Text))
             {
                 MessageBox.Show("Tên DEV không được để trống");
@@ -152,6 +154,9 @@ namespace GomBuild_v2
             mess.Append("- JIRA: " + textBox2.Text + "\n");
             mess.Append("- BUILD: " + comboBox1.Text + "\n");
 
+            if (!string.IsNullOrEmpty(textBox8.Text))
+                mess.Append("- CODE: " + textBox8.Text + "\n");
+
             if (!string.IsNullOrEmpty(textBox3.Text))
                 mess.Append("- NỘI DUNG: " + textBox3.Text + "\n");
 
@@ -160,35 +165,33 @@ namespace GomBuild_v2
 
             try
             {
-                using SQLiteConnection connection = new SQLiteConnection(connectionString);
+                //using SQLiteConnection connection = new SQLiteConnection(connectionString);
                 
                 if (!string.IsNullOrEmpty(textBox4.Text))
                 {
-                    connection.Open();
+                    //connection.Open();
                     mess.Append("- THAM SỐ: " + "\n");
                     for (int i = 0; i < textBox4.Lines.Length; i++)
                     {
                         if (!string.IsNullOrEmpty(textBox4.Lines[i]))
                         {
-                            SQLiteCommand add = new SQLiteCommand(connection);
-                            string sqlinsert = "INSERT INTO APPSETTINGS (DEV,CODE,BUILD,JIRA,TIME_COMMIT) VALUES (@DEV,@CODE,@BUILD,@JIRA,@TIME_COMMIT)";
-                            add.Parameters.AddWithValue("@DEV", comboBox2.Text);
-                            add.Parameters.AddWithValue("@CODE", textBox4.Lines[i]);
-                            add.Parameters.AddWithValue("@BUILD", comboBox1.Text);
-                            add.Parameters.AddWithValue("@JIRA", textBox2.Text);
-                            add.Parameters.AddWithValue("@TIME_COMMIT", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-                            add.CommandText = sqlinsert;
-#if DEBUG
+                            //SQLiteCommand add = new SQLiteCommand(connection);
+                            //string sqlinsert = "INSERT INTO APPSETTINGS (DEV,CODE,BUILD,JIRA,TIME_COMMIT) VALUES (@DEV,@CODE,@BUILD,@JIRA,@TIME_COMMIT)";
+                            //add.Parameters.AddWithValue("@DEV", comboBox2.Text);
+                            //add.Parameters.AddWithValue("@CODE", textBox4.Lines[i]);
+                            //add.Parameters.AddWithValue("@BUILD", comboBox1.Text);
+                            //add.Parameters.AddWithValue("@JIRA", textBox2.Text);
+                            //add.Parameters.AddWithValue("@TIME_COMMIT", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                            //add.CommandText = sqlinsert;
+
                             //add.ExecuteNonQuery();
-#else
-                            add.ExecuteNonQuery();
-#endif
-                            add.Parameters.Clear();
+
+                            //add.Parameters.Clear();
                             mess.Append("    + " + textBox4.Lines[i] + "\n");
 
                         }
                     }
-                    connection.Close();
+                    //connection.Close();
                 }
                 mess.Append("- FILE: " + "\n");
                 foreach (DataGridViewRow item in dataGridView1.Rows)
@@ -248,67 +251,65 @@ namespace GomBuild_v2
                         }
                     }
 
-
-                    if (!string.IsNullOrEmpty(textBox3.Text))
-                    {
-                        System.IO.File.WriteAllText(Path.Combine(path, dev, textBox2.Text, "01 - README.txt"), textBox3.Text, Encoding.UTF8);
-                    }
-                    if (!checkBox2.Checked)
-                    {
-                        using (StreamWriter writer = new StreamWriter(Path.Combine(path, dev, textBox2.Text, "02 - JIRA.url")))
-                        {
-                            writer.WriteLine("[{000214A0-0000-0000-C000-000000000046}]");
-                            writer.WriteLine("Prop3=19,11");
-                            writer.WriteLine("[InternetShortcut]");
-                            writer.WriteLine("IDList=");
-                            writer.WriteLine("URL=" + string.Format("https://jira.fis.com.vn/browse/{0}", textBox2.Text));
-                            writer.Flush();
-                        }
-                    }
-
-
                     // Ghi vào tracking
                     //using SQLiteConnection connection = new SQLiteConnection(connectionString);
-                    try
-                    {
-                        string sql = "INSERT INTO LOG (DEV,FILENAME,TYPE,MA_JIRA,LINK_JIRA,CONTENT,HOTFIX,SITE,VERSION,TIME_COMMIT,OVERRIDE,NEW_VERSION)" +
-                            " VALUES (@DEV,@FILENAME,@TYPE,@MA_JIRA,@LINK_JIRA" +
-                            ",@CONTENT,@HOTFIX,@SITE,@VERSION,@TIME_COMMIT,@OVERRIDE,@NEW_VERSION)";
+                    //try
+                    //{
+                    //    string sql = "INSERT INTO LOG (DEV,FILENAME,TYPE,MA_JIRA,LINK_JIRA,CONTENT,HOTFIX,SITE,VERSION,TIME_COMMIT,OVERRIDE,NEW_VERSION)" +
+                    //        " VALUES (@DEV,@FILENAME,@TYPE,@MA_JIRA,@LINK_JIRA" +
+                    //        ",@CONTENT,@HOTFIX,@SITE,@VERSION,@TIME_COMMIT,@OVERRIDE,@NEW_VERSION)";
 
-                        connection.Open();
-                        SQLiteCommand cmd = new SQLiteCommand(connection);
-                        cmd.Parameters.AddWithValue("@DEV", comboBox2.Text);
-                        cmd.Parameters.AddWithValue("@FILENAME", Filename);
-                        cmd.Parameters.AddWithValue("@TYPE", type);
-                        cmd.Parameters.AddWithValue("@MA_JIRA", textBox2.Text);
-                        cmd.Parameters.AddWithValue("@LINK_JIRA", "https://jira.fis.com.vn/browse/" + textBox2.Text);
-                        cmd.Parameters.AddWithValue("@CONTENT", textBox3.Text);
-                        cmd.Parameters.AddWithValue("@HOTFIX", checkBox1.Checked);
-                        cmd.Parameters.AddWithValue("@SITE", comboBox3.Text);
-                        cmd.Parameters.AddWithValue("@VERSION", comboBox1.Text);
-                        cmd.Parameters.AddWithValue("@TIME_COMMIT", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-                        cmd.Parameters.AddWithValue("@OVERRIDE", isOverride);
-                        cmd.Parameters.AddWithValue("@NEW_VERSION", isAddNew);
-                        cmd.CommandText = sql;
+                    //    connection.Open();
+                    //    SQLiteCommand cmd = new SQLiteCommand(connection);
+                    //    cmd.Parameters.AddWithValue("@DEV", comboBox2.Text);
+                    //    cmd.Parameters.AddWithValue("@FILENAME", Filename);
+                    //    cmd.Parameters.AddWithValue("@TYPE", type);
+                    //    cmd.Parameters.AddWithValue("@MA_JIRA", textBox2.Text);
+                    //    cmd.Parameters.AddWithValue("@LINK_JIRA", "https://jira.fis.com.vn/browse/" + textBox2.Text);
+                    //    cmd.Parameters.AddWithValue("@CONTENT", textBox3.Text);
+                    //    cmd.Parameters.AddWithValue("@HOTFIX", checkBox1.Checked);
+                    //    cmd.Parameters.AddWithValue("@SITE", comboBox3.Text);
+                    //    cmd.Parameters.AddWithValue("@VERSION", comboBox1.Text);
+                    //    cmd.Parameters.AddWithValue("@TIME_COMMIT", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                    //    cmd.Parameters.AddWithValue("@OVERRIDE", isOverride);
+                    //    cmd.Parameters.AddWithValue("@NEW_VERSION", isAddNew);
+                    //    cmd.CommandText = sql;
+                    //    cmd.ExecuteNonQuery();
 
-#if DEBUG
-                        //cmd.ExecuteNonQuery();
-#else
-                        cmd.ExecuteNonQuery();
-#endif
-                        cmd.Parameters.Clear();
-                    }
-                    catch (Exception ex)
+                    //    cmd.Parameters.Clear();
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    throw;
+                    //}
+                    //finally
+                    //{
+                    //    connection.Close();
+                    //}
+                }
+
+                if (!string.IsNullOrEmpty(mess.ToString()))
+                {
+                    System.IO.File.WriteAllText(Path.Combine(path, dev, textBox2.Text, "01 - README.txt"), mess.ToString(), Encoding.UTF8);
+                }
+                if (!checkBox2.Checked)
+                {
+                    using (StreamWriter writer = new StreamWriter(Path.Combine(path, dev, textBox2.Text, "02 - JIRA.url")))
                     {
-                        throw;
-                    }
-                    finally
-                    {
-                        connection.Close();
+                        writer.WriteLine("[{000214A0-0000-0000-C000-000000000046}]");
+                        writer.WriteLine("Prop3=19,11");
+                        writer.WriteLine("[InternetShortcut]");
+                        writer.WriteLine("IDList=");
+                        writer.WriteLine("URL=" + string.Format("https://jira.fis.com.vn/browse/{0}", textBox2.Text));
+                        writer.Flush();
                     }
                 }
 
-                var formRes = MessageBox.Show(mess.ToString() + "\n" + "Kiểm tra lại onedrive có sync không nha ^^", "Xong rồi đó (OK = copy text)");
+                // Commit SVN
+
+                await CommitSVN(Path.Combine(textBox1.Text, project, comboBox1.Text));
+
+                var formRes = MessageBox.Show(mess.ToString(), "Xong rồi đó (OK = copy text)");
                 if (formRes == DialogResult.OK)
                 {
                     System.Windows.Forms.Clipboard.SetText(mess.ToString());
@@ -498,31 +499,31 @@ namespace GomBuild_v2
               
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Column1")
             {
-                string connectionString = SQLLITE_CONNECTION;
-                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-                {
-                    connection.Open();
-                    string sqlString = "SELECT * from LOG WHERE FILENAME = @FILENAME and VERSION = @BUILD_VER order by TIME_COMMIT DESC limit 1";
-                    SQLiteCommand cmd = new SQLiteCommand(sqlString, connection);
-                    cmd.Parameters.AddWithValue("@FILENAME", dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    cmd.Parameters.AddWithValue("@BUILD_VER", comboBox1.Text);
-                    SQLiteDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        StringBuilder mess = new StringBuilder();
-                        mess.AppendLine("DEV: " + reader["DEV"].ToString());
-                        mess.AppendLine("JIRA: " + reader["MA_JIRA"].ToString());
-                        mess.AppendLine("NỘI DUNG: " + reader["CONTENT"].ToString());
-                        mess.AppendLine("TIME: " + reader["TIME_COMMIT"].ToString());
+                //string connectionString = SQLLITE_CONNECTION;
+                //using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                //{
+                //    connection.Open();
+                //    string sqlString = "SELECT * from LOG WHERE FILENAME = @FILENAME and VERSION = @BUILD_VER order by TIME_COMMIT DESC limit 1";
+                //    SQLiteCommand cmd = new SQLiteCommand(sqlString, connection);
+                //    cmd.Parameters.AddWithValue("@FILENAME", dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+                //    cmd.Parameters.AddWithValue("@BUILD_VER", comboBox1.Text);
+                //    SQLiteDataReader reader = cmd.ExecuteReader();
+                //    while (reader.Read())
+                //    {
+                //        StringBuilder mess = new StringBuilder();
+                //        mess.AppendLine("DEV: " + reader["DEV"].ToString());
+                //        mess.AppendLine("JIRA: " + reader["MA_JIRA"].ToString());
+                //        mess.AppendLine("NỘI DUNG: " + reader["CONTENT"].ToString());
+                //        mess.AppendLine("TIME: " + reader["TIME_COMMIT"].ToString());
 
-                        if (MessageBox.Show(mess.ToString(), "DEV commit cuối (Yes = copy jira)", MessageBoxButtons.YesNo, MessageBoxIcon.Question
-                                ) == DialogResult.Yes)
-                        {
-                            System.Windows.Forms.Clipboard.SetText(reader["MA_JIRA"].ToString());
-                        }
-                    }
-                    connection.Close();
-                }
+                //        if (MessageBox.Show(mess.ToString(), "DEV commit cuối (Yes = copy jira)", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                //                ) == DialogResult.Yes)
+                //        {
+                //            System.Windows.Forms.Clipboard.SetText(reader["MA_JIRA"].ToString());
+                //        }
+                //    }
+                //    connection.Close();
+                //}
             }
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "Column3") // override
             {
@@ -536,6 +537,7 @@ namespace GomBuild_v2
 
         private void button4_Click(object sender, EventArgs e)
         {
+            return;
             if (string.IsNullOrEmpty(comboBox1.Text))
             {
                 MessageBox.Show("Chọn build version");
@@ -678,7 +680,8 @@ namespace GomBuild_v2
             {
                 var SelectedBuild = (comboBox1.SelectedItem as BUILDS);
                 label8.Text = SelectedBuild.NOTE;
-                SQLLITE_CONNECTION = string.Format(@"Data Source={0}\{1}\TrackingCommit.db;Version=3;", textBox1.Text, SelectedBuild.PROJECT);
+                label11.Text = SelectedBuild.PROJECT;
+                //SQLLITE_CONNECTION = string.Format(@"Data Source={0}\{1}\TrackingCommit.db;Version=3;", textBox1.Text, SelectedBuild.PROJECT);
             }
         }
 
@@ -709,6 +712,190 @@ namespace GomBuild_v2
                 cbo_BuildVer.DataSource = lstVer.Where(x => x.PROJECT.Equals(cbo_Project.Text)).ToList();
 
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "files (*.gz)|*.gz";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+                openFileDialog.Multiselect = false;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string directoryName = Path.GetDirectoryName(openFileDialog.FileName);
+                    string withoutExtension = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+
+                    textBox5.Text = openFileDialog.FileName;
+                    textBox6.Text = Path.Combine(directoryName, withoutExtension);
+                }
+
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox5.Text))
+                return;
+            textBox7.Text = string.Empty;
+            StringBuilder Command_Click = new StringBuilder();
+            StringBuilder Command_DoubleClick = new StringBuilder();
+            StringBuilder Command_TextChanged = new StringBuilder();
+            StringBuilder Command_SelChanged = new StringBuilder();
+            StringBuilder Command_Final = new StringBuilder();
+
+            StringBuilder ModelScript= new StringBuilder();
+
+            // Tạo thư mục nếu chưa có
+            string outputPath = textBox6.Text;
+            Directory.CreateDirectory(outputPath);
+
+            FileInfo fileToDecompress = new FileInfo(textBox5.Text);
+            try
+            {
+                string directoryName = Path.GetDirectoryName(textBox5.Text);
+                string withoutExtension = Path.GetFileNameWithoutExtension(textBox5.Text);
+
+                List<Dictionary<string, object>> data = Common.Decompress(fileToDecompress);
+
+                var nameCount = new Dictionary<string, int>();
+                var usedNames = new HashSet<string>();
+
+                int StartTabIndex = 0;
+                foreach (var dict in data)
+                {
+                    if (!dict.ContainsKey("Name") || dict["Name"] == null)
+                        continue;
+
+                    if (checkBox4.Checked)
+                    {
+                        Common.GenCodeModel(dict, ModelScript);
+                    }
+
+                    if (checkBox5.Checked)
+                    {
+                        Common.GenCodeEvent(dict, Command_Click, "Command_Click");
+                        Common.GenCodeEvent(dict, Command_DoubleClick, "Command_DoubleClick");
+                        Common.GenCodeEvent(dict, Command_TextChanged, "Command_TextChanged");
+                        Common.GenCodeEvent(dict, Command_SelChanged, "Command_SelChanged");
+                    }
+
+                    //if (checkBox6.Checked)
+                    //{
+                    //    string[] TemplateIgnore = new string[] { "ControlContainer", "Panel", "GridView", "Label", "RadioList", "TabButton", "Flowbuttons", "GroupBox" };
+                    //    string originalTemplate = dict["Template"].ToString();
+                    //    if (!TemplateIgnore.Contains(originalTemplate))
+                    //    {
+                    //        dict["TabIndex"] = StartTabIndex;
+                    //        StartTabIndex++;
+                    //    }
+                    //    else
+                    //    {
+                    //        dict["TabIndex"] = 0;
+                    //    }
+                    //}
+
+                    string originalName = dict["Name"].ToString();
+                    string newName = originalName;
+
+                    if (!usedNames.Contains(newName))
+                    {
+                        usedNames.Add(newName);
+                        nameCount[originalName] = 1;
+                    }
+                    else
+                    {
+                        int suffix = nameCount[originalName];
+                        do
+                        {
+                            newName = $"{originalName}_{suffix}";
+                            suffix++;
+                        } while (usedNames.Contains(newName));
+
+                        dict["Name"] = newName;
+                        usedNames.Add(newName);
+                        nameCount[originalName] = suffix;
+                    }
+                }
+
+                
+                Common.WriteJsonToGzipFile(data, Path.Combine(outputPath, withoutExtension + "_NEW.gz"));
+
+                Command_Final.AppendLine("#region Command_Click");
+                Command_Final.Append(Command_Click);
+                Command_Final.AppendLine("#endregion");
+
+                Command_Final.AppendLine("#region Command_DoubleClick");
+                Command_Final.Append(Command_DoubleClick);
+                Command_Final.AppendLine("#endregion");
+
+                Command_Final.AppendLine("#region Command_TextChanged");
+                Command_Final.Append(Command_TextChanged);
+                Command_Final.AppendLine("#endregion");
+
+                Command_Final.AppendLine("#region Command_SelChanged");
+                Command_Final.Append(Command_SelChanged);
+                Command_Final.AppendLine("#endregion");
+
+                File.WriteAllText(Path.Combine(outputPath,"Event.cs"), Command_Final.ToString()); 
+                File.WriteAllText(Path.Combine(outputPath,"Model.cs"), ModelScript.ToString()); 
+
+
+
+                textBox7.Text = "Xong rồi đó";
+
+                if (checkBox3.Checked)
+                {
+                    var psi = new ProcessStartInfo
+                    {
+                        FileName = outputPath,
+                        UseShellExecute = true
+                    };
+
+                    Process.Start(psi);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                textBox7.Text = ex.Message;
+                throw;
+            }
+
+        }
+
+
+        private async Task CommitSVN(string wc)
+        {
+            var svn = new SvnClientHelper(
+                workingCopyPath: wc,
+                username: "trungvt21",      // optional
+                password: "XiGtD8ygIg0MC8X"       // optional
+            );
+
+            // 1. Make sure everything is up-to-date
+            var update = await svn.UpdateAsync();
+            Console.WriteLine(update.StdOut);
+
+            // 2. Add all new files/folders recursively
+            var addAll = await svn.AddAsync(".", force: true);
+            Console.WriteLine(addAll.StdOut);
+
+            var canCommit = await svn.CheckCommitPermissionAsync();
+            if (!canCommit.Success)
+            {
+                Console.WriteLine("No commit permission:");
+                Console.WriteLine(canCommit.StdErr);
+            }
+
+            // 3. Commit everything in the folder
+            var commit = await svn.CommitAsync(".", "Commit all files in folder");
+            Console.WriteLine(commit.StdOut);
+
+            if (!commit.Success)
+                Console.WriteLine("Commit failed: " + commit.StdErr);
         }
     }
 }
